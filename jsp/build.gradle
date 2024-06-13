@@ -1,0 +1,79 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.3'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.jsp'
+//version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+	
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
+	
+	// 암호화 MVN repository
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+	// implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '3.2.3'
+	
+	// for log4j2 by tony 24.03.06
+	// https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4.1
+	// 그래들 파일 설정시 우클릭 > 그래들 > 후에 실행해 주어야 반영됨
+	implementation group: 'org.bgee.log4jdbc-log4j2', name: 'log4jdbc-log4j2-jdbc4.1', version: '1.16'
+	
+	// spring boot start mail
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail
+	// implementation group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '3.2.5'
+	
+	// 파일 업로드
+	// https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload
+	// implementation group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4'
+	
+	// 클라우드
+	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-aws
+	// implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-aws', version: '2.2.6.RELEASE'
+	
+	// 파일 엑셀 다운로드
+	// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
+	// implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.5'
+	
+	// jstl/el 관련
+	 // Jakarta EE 9.0 Servlet API
+    implementation 'javax.servlet:javax.servlet-api:4.0.1'
+
+    // Jakarta EE 9.0 JSTL
+    implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:2.0.0'
+
+    // Embedded Tomcat Jasper for JSP
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+
+    // JSTL Standard Tag Library
+    implementation 'javax.servlet:jstl:1.2'
+	
+
+	
+}
+
+
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+
+
+
